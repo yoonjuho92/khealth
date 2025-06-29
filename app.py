@@ -1,10 +1,10 @@
 import streamlit as st
 from api import ask_rag_chatbot
 
-st.set_page_config(page_title="벤야민 챗봇", page_icon="📚", layout="wide")
+st.set_page_config(page_title="코끼리 챗봇", page_icon="📚", layout="centered")
 
-st.title("📖 발터 벤야민 챗봇")
-st.caption("예술가로서 고민이 있다면 발터 벤야민에게 상담해보세요!")
+st.title("📖 아동상담봇")
+st.caption("아동상담 전문 교과서의 text를 기반으로 답변을 드립니다.")
 
 # 세션 상태 초기화
 if "chat_history" not in st.session_state:
