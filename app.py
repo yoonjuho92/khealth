@@ -25,7 +25,9 @@ for name in prompt_names:
 
 # === 세션 상태 초기화 ===
 if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
+    st.session_state.chat_history = [
+        {"role": "assistant", "content": "자녀에 대한 고민이 있으신가요?"}
+    ]
 if "pending_user_input" not in st.session_state:
     st.session_state.pending_user_input = None
 if "pending_assistant_response" not in st.session_state:

@@ -67,6 +67,7 @@ def ask_rag_chatbot(query: str, chat_history: list[dict]) -> str:
     system_prompt_format = """당신은 아동 상담 전문가입니다.
 참고를 위해 주어진 정보는 아동심리 전문 서적에서 사용자의 발화와 관련된 내용을 찾은 것입니다.
 해당 내용을 참고해서 쉽고 최대한 구체적으로 답변을 주세요.
+예시의 스타일을 참고해서 비슷한 스타일로 답변해 주세요.
 
 ### 참고할 이론
 {rag_text}
@@ -81,6 +82,10 @@ def ask_rag_chatbot(query: str, chat_history: list[dict]) -> str:
     system_prompt = system_prompt_format.format(
         rag_text=rag_text, instruction=INSTRUCTION, few_shots=FEW_SHOTS
     )
+
+    print("-" * 60)
+    print(f"시스템 프롬프트: {system_prompt}")
+    print("-" * 60)  # 디버깅용 출력
 
     messages = [{"role": "system", "content": system_prompt}] + chat_history
     messages.append(
