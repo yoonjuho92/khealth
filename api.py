@@ -56,8 +56,7 @@ def ask_rag_chatbot(query: str, chat_history: list[dict]) -> str:
     docs = retrieve_relevant_chunks(query, top_k=3)
     rag_text = ""
     for doc in docs:
-        rag_text += f"""----------------------
-{doc.get("chapter", "")}{doc.get("section", "")}
+        rag_text += f"""{doc.get("author", "")}의 이론 {doc.get("title", "")}
 {doc.get("doc", "")}
 ----------------------
 """
